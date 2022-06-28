@@ -1,18 +1,7 @@
 # KimNahyun
-<<<<<<< Updated upstream
 
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 # 😂
-# 😎
-=======
->>>>>>> main
 
-<<<<<<< Updated upstream
-# 😅
-=======
-# 😂
->>>>>>> Stashed changes
+# 6월 28일
 
-# 😅
+#
