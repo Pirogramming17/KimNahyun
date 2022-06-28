@@ -16,57 +16,72 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1" />
   </head>
   <body>
-    <h1>
-      <!-- 
-            속성/부가정보는 attribute
-            주석은 comment
-        -->
-      <a href="http://www.naver.com">네이버</a>
-    </h1>
-    <h2>검색창</h2>
-    <fieldset>
-      <!--legend는 범례라는 의미-->
-      <legend>검색</legend>
-      <input />
-      <!-- checkbox는 다중택 가능
-      <input type="checkbox" />
-        radio는 둘 다 선택 불가능
-      <input type="radio" name="group" />
-      <input type="radio" name="group" />
-      사이즈 조절 가능 텍스트입력공간<textarea></textarea>-->
-      <button>검색</button>
-    </fieldset>
-    <!-- unordered list/ordered list -->
-    <ul>
-      <!-- list item-->
-      <li>메일</li>
-      <li>카페</li>
-      <li>블로그</li>
-      <li>지식인</li>
-      <li>쇼핑</li>
-      <li>네이버페이</li>
-      <li>네이버쇼핑</li>
-    </ul>
+    <!--
+        div는 웹사이트 아웃라인을 할 때 사용, 가로 우선 그 다음 세로
+        div를 남발하면 무슨 구획인지 모르니, header, footer 등 naming 필요
+    -->
+    <header>
+      <h1>
+        <!-- 
+                속성/부가정보는 attribute
+                주석은 comment
+            -->
+        <a href="http://www.naver.com">네이버</a>
+      </h1>
+      <h2>검색창</h2>
+      <fieldset>
+        <!--legend는 범례라는 의미-->
+        <legend>검색</legend>
+        <input />
+        <!-- checkbox는 다중택 가능
+        <input type="checkbox" />
+            radio는 둘 다 선택 불가능
+        <input type="radio" name="group" />
+        <input type="radio" name="group" />
+        사이즈 조절 가능 텍스트입력공간<textarea></textarea>-->
+        <button>검색</button>
+      </fieldset>
+    </header>
 
-    <h2>실시간 검색어</h2>
-    <h3>연합뉴스</h3>
-    <!--ctrl + shift + c 하면 F12에서 원하는 것 찾기 가능-->
-    <ol>
-      <li>충격) 워터밤</li>
-      <li>전격발표) 피로그래밍 콴다 출시</li>
-      <li>HOT) 위너 신곡 발표</li>
-    </ol>
-    <h3>뉴스스탠드</h3>
-    <ul>
-      <li><img src="./해럴츠.png" alt="코리아 해럴츠" /></li>
-      <li><img src="./연합뉴스.png" alt="연합뉴스 TV" /></li>
-    </ul>
-    <h3>로그인</h3>
-    <!--i 태그는 중요하거나 기울일 때 사용-->
-    <!--bold 태그는 굵게 사용-->
-    <h3>뉴스</h3>
-    <h3>법률</h3>
-    <h3>쇼핑</h3>
-    <h6>쇼핑</h6>
+    <nav>
+      <!-- unordered list/ordered list -->
+      <ul>
+        <!-- list item-->
+        <li>메일</li>
+        <li>카페</li>
+        <li>블로그</li>
+        <li>지식인</li>
+        <li>쇼핑</li>
+        <li>네이버페이</li>
+        <li>네이버쇼핑</li>
+      </ul>
+    </nav>
+    <main>
+      <h2>실시간 검색어</h2>
+      <h3>연합뉴스</h3>
+      <!--ctrl + shift + c 하면 F12에서 원하는 것 찾기 가능-->
+      <ol>
+        <li>충격) 워터밤</li>
+        <li>전격발표) 피로그래밍 콴다 출시</li>
+        <li>HOT) 위너 신곡 발표</li>
+      </ol>
+      <h3>뉴스스탠드</h3>
+      <ul>
+        <li><img src="./해럴츠.png" alt="코리아 해럴츠" /></li>
+        <li><img src="./연합뉴스.png" alt="연합뉴스 TV" /></li>
+      </ul>
+      <h3>로그인</h3>
+      <!--i 태그는 중요하거나 기울일 때 사용-->
+      <!--bold 태그는 굵게 사용-->
+      <h3>뉴스</h3>
+      <h3>법률</h3>
+      <h3>쇼핑</h3>
+      <h6>쇼핑</h6>
+    </main>
+    <footer>
+      <div>공지사항</div>
+      <div>Creators</div>
+      <div>회사 소개</div>
+    </footer>
   </body>
 </html>
