@@ -22,12 +22,12 @@
         div를 남발하면 무슨 구획인지 모르니, header, footer 등 naming 필요
     -->
     <header>
-        <div id = "fixed">고정</div>
+        <!-- fixed 예시 <div id = "fixed">고정</div> -->
       <!-- 가운데 정렬용 div/ center 태그 쓰지마셈 -->
       <!-- 속성명: 속성값 ; 속성명2: 속성값2;  -->
       <!-- css를 안만들고 html로 하는거, inline style(권장X)-->
 
-      <div id="header-center">
+      <div class="center-align">
         <div>
           <span>네이버를 시작페이지로</span>
           <span>쥬니어네이버</span>
@@ -66,16 +66,19 @@
 
     <nav>
       <!-- unordered list/ordered list -->
-      <ul>
-        <!-- list item-->
-        <li>메일</li>
-        <li>카페</li>
-        <li>블로그</li>
-        <li>지식인</li>
-        <li>쇼핑</li>
-        <li>네이버페이</li>
-        <li>네이버쇼핑</li>
-      </ul>
+      <div class="center-align">
+        <ul>
+            <!-- list item-->
+            <li><a href="https://mail.naver.com/"><span></span><span>메일</span></a></li>
+            <li><a href="https://section.cafe.naver.com/ca-fe/"><span></span><span>카페</span></a></li>
+            <li><a href="https://section.blog.naver.com/"><span></span><span>블로그</span></a></li>
+            <li><a href="https://kin.naver.com/"><span></span><span>지식iN</span></a></li>
+            <li><a href="https://shopping.naver.com/"><span></span><span class="blind">쇼핑</span></a></li>
+            <li><a href="https://shoppinglive.naver.com/home"><span></span><span class="blind">쇼핑Live</span></a></li>
+            <li><a href="https://order.pay.naver.com/home"><span></span><span>Pay</span></a></li>
+            <li><a href="https://tv.naver.com/"><span></span><span>TV</span></a></li>
+        </ul>
+    </div>
     </nav>
     <main>
       <h2>실시간 검색어</h2>
@@ -108,6 +111,7 @@
         <li><img src="./mbc.png" alt="mbc" /></li>
         <li><img src="./스포츠조선.png" alt="스포츠조선 TV" /></li>
         <li><img src="./시사IN.png" alt="시사IN" /></li>
+        
         
       </ul>
       <h3>로그인</h3>

@@ -43,10 +43,9 @@ inline은 컨텐츠 너비 지정크기만 차지(빈 공간 마련 불가능)
 inline-block은 너비, 높이 지정크기 가능
 */
 
-#header-center {
+.center-align {
   margin: 0 auto 0 auto;
   width: 1080px; /*px는 상대적 길이, 모니터별로 다름*/
-  display: inline-block;
 }
 
 #header-search > a {
@@ -137,17 +136,18 @@ inline-block은 너비, 높이 지정크기 가능
   right: 0;
   top: -1px;
 }
-
+/*
 #fixed {
   position: fixed;
   top: 50px;
   right: 50px;
   display: inline-block;
-  width: 100px; /*컨테이닝 블록에 따른 %로도 크기 조정 가능*/
+  width: 100px;   컨테이닝 블록에 따른 %로도 크기 조정 가능
   height: 100px;
   border: 1px solid black;
   border-radius: 50px;
 }
+*/
 
 #search-image {
   background: #19ce60;
@@ -159,4 +159,62 @@ inline-block은 너비, 높이 지정크기 가능
   display: inline-block;
   vertical-align: top;
   margin: 14px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #19ce60;
+  cursor: pointer;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #03c75a;
+  letter-spacing: -0.3px;
+}
+
+nav li span:first-child {
+  background-image: url(./네이버\ 메인\ 사진.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-left: 9px;
+}
+
+nav li:first-child span:first-child {
+  width: 21px;
+  height: 21px;
+  background-position: -420px -73px;
+  position: relative;
+  top: 4px;
+  margin-right: 9px;
+}
+
+nav li:nth-child(5) span:first-child {
+  width: 24px;
+  height: 20px;
+  background-position: -154px -389px;
+  position: relative;
+  top: 4px;
+}
+
+nav li:nth-child(6) span:first-child {
+  width: 54px;
+  height: 20px;
+  background-position: -202px -299px;
+  position: relative;
+  top: 4px;
+}
+
+nav li:last-child span:first-child {
+  width: 12px;
+  height: 14px;
+  background-position: -444px -49px;
 }
