@@ -1,3 +1,8 @@
+/* *{}은 모든 태그에 적용할 수 있는 것, 중복을 줄여주기 위함*/
+/* 기본 브라우저에 있는 css를 없애야 한다.*/
+* {
+  box-sizing: border-box;
+}
 /*
 Cascading Style Sheet
 -html 덮어씌워지는 속성 존재 
@@ -39,10 +44,12 @@ inline-block은 너비, 높이 지정크기 가능
 }
 
 #header-search > a {
+  vertical-align: middle;
   text-decoration: none;
 }
 
 #header-search h1 {
+  vertical-align: middle;
   width: 222px;
   height: 52px;
   display: inline-block;
@@ -68,6 +75,7 @@ inline-block은 너비, 높이 지정크기 가능
   display: none;
 }
 #header-search fieldset {
+  vertical-align: middle;
   margin-left: 20px;
   /*
   padding-top: 12px;
@@ -79,5 +87,12 @@ inline-block은 너비, 높이 지정크기 가능
   width: 582px;
   height: 52px;
   display: inline-block;
-  border: 2px solid #19ce60;
+  border: 2px solid #19ce60; /* hex */
+  /* rgb는 rgb(x,y,z) */
+}
+
+#header-search fieldset input {
+  border: none;
+  padding: 0;
+  outline: none;
 }
