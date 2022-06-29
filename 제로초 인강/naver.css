@@ -90,20 +90,21 @@ header {
   line-height: 16px; /*글자의 높이 */
 }
 
-/*
 .nav-divider {
+  position: relative;
+  top: -38px;
+  right: -708px;
   display: inline-block;
   margin: 18px 16px 0;
   width: 1px;
   height: 14px;
   background: #ebeef3;
 }
-*/
 
 #jr-naver span:first-child {
   position: relative;
   right: 140px;
-  top: -15px;
+  top: -50px;
   display: inline-block;
   width: 62px;
   height: 10px;
@@ -118,7 +119,7 @@ header {
 #happy-bean span:first-child {
   position: relative;
   right: 70px;
-  top: -38px;
+  top: -72px;
   display: inline-block;
   width: 39px;
   height: 13px;
@@ -192,7 +193,7 @@ header {
   padding: 0;
   outline: none;
   vertical-align: top;
-  width: 444px;
+  width: 455px;
   height: 24px;
   display: inline-block;
 }
@@ -247,7 +248,34 @@ header {
   border-radius: 50px;
 }
 */
+#search-keyboard {
+  position: absolute;
+  top: 50%;
+  left: 83%;
+  display: inline-block;
+  width: 20px;
+  height: 12px;
+  background-position: -420px -402px;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin: -6px 0 0 -10px;
+  background-image: url(./네이버\ 메인\ 사진.png);
+  padding: 0 6px;
+}
 
+#search-history {
+  display: inline-block;
+  position: relative;
+  top: 11px;
+  left: 30px;
+  width: 10px;
+  height: 5px;
+  background-position: -408px -100px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  background-image: url(./네이버\ 메인\ 사진.png);
+  padding: 0 6px;
+}
 #search-image {
   background: #19ce60;
   background-image: url(./네이버\ 메인\ 사진.png);
@@ -268,9 +296,10 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #19ce60;
+  color: #000000;
   cursor: pointer;
 }
+
 nav ul {
   margin: 0;
   padding: 7px 0 0 4px;
@@ -326,12 +355,39 @@ nav li:nth-child(6) span:first-child {
   top: 4px;
 }
 
-nav li:last-child span:first-child {
+nav li:nth-child(8) span:first-child {
   width: 12px;
   height: 14px;
   background-position: -444px -49px;
 }
 
+#see-more {
+  position: relative;
+  top: -30px;
+  right: -771px;
+  float: left;
+  margin-left: 17px;
+  font-size: 13px;
+  line-height: 30px;
+  color: #202020;
+  text-align: right;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#see-more span:first-child {
+  position: relative;
+  top: 2px;
+  right: -53px;
+  display: inline-block;
+  width: 11px;
+  height: 7px;
+  background-position: -444px -339px;
+  background-image: url(./네이버\ 메인\ 사진.png);
+  background-repeat: no-repeat;
+  margin-left: 7px;
+  vertical-align: 2px;
+}
 #search-ranking {
   position: absolute;
   top: 180px;
@@ -342,4 +398,9 @@ nav li:last-child span:first-child {
   margin-top: -9px;
   color: #00ab33;
   font-size: 16px;
+}
+
+main {
+  background-color: #f2f4f7;
+  overflow: auto;
 }
