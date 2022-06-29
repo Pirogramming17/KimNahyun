@@ -232,7 +232,9 @@ header {
   - overflow가 visible이 아닌 요소(기본값 visible)
   - auto와 hidden의 차이는 높이와 관련 (hidden으로 주면 아예 부모와 같게 길이가 짤림)
   */
-  /*쌓임 맥락 stacking context*/
+  /*쌓임 맥락 stacking context
+  -first와 last chlid 사이 충돌
+  */
   right: -1px;
   top: -1px;
 }
@@ -402,5 +404,6 @@ nav li:nth-child(8) span:first-child {
 
 main {
   background-color: #f2f4f7;
-  overflow: auto;
+  display: inline-block;
+  width: 100%;
 }

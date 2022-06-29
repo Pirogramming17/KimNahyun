@@ -21,6 +21,17 @@
         div는 웹사이트 아웃라인을 할 때 사용, 가로 우선 그 다음 세로
         div를 남발하면 무슨 구획인지 모르니, header, footer 등 naming 필요
     -->
+    <!--형제 간 margin collision / 부모와 자식 의 margin collision
+    <div style="height:20px; margin-bottom: 20px; background:yellow"></div>
+    <div style="height:20px; margin-top: 20px; background:green"></div>
+
+    해결방법은 
+    float:left; width: 100% 사용
+    position: absolute 사용
+    display: inline-block;(필수?) width: 100% 사용(필수X)
+        
+    -->
+
     <header>
       <!-- fixed 예시 <div id = "fixed">고정</div> -->
       <!-- 가운데 정렬용 div/ center 태그 쓰지마셈 -->
