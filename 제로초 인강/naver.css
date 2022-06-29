@@ -111,6 +111,17 @@ inline-block은 너비, 높이 지정크기 가능
   padding: 0;
   background: #19ce60;
   position: absolute;
+  /*mdn web docs 참고*/
+  /* 컨테이닝 블록의 모든 것
+  - 감싼다고 해서 컨테이닝 블록은 아님
+  - static,relative면 블록 컨테이너 or 컨텐츠 영역
+  - static만 아니면 컨테이닝 블록 가능 
+  - absolute면 가장 가까운 조상의 내부 여백 영역
+  - absolute면 기존 배치 흐름에서 벗어남
+  - fixed면 페이지 영역
+  - html을 기본 컨테이닝 블록으로 생각
+  -*/
+
   /*블록 서식 문맥 block formatting context*/
   /*쌓임 맥락 stacking context*/
   right: 0;
