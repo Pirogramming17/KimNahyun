@@ -48,6 +48,75 @@ inline-block은 너비, 높이 지정크기 가능
   width: 1080px; /*px는 상대적 길이, 모니터별로 다름*/
 }
 
+#header-top {
+  position: absolute;
+  right: -5px;
+  cursor: pointer;
+  float: right;
+}
+
+#naver-start span:first-child {
+  position: relative;
+  right: 175px;
+  top: 7px;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-position: -308px -345px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  margin: -3px 0 0 3px;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+  background-size: 457px 434px;
+}
+
+#naver-start span:nth-child(2) {
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  right: 320px;
+  top: 3px;
+  color: #404040;
+  letter-spacing: 0px; /*글자 사이 간격*/
+  font-size: 11px;
+  line-height: 16px; /*글자의 높이 */
+}
+
+#jr-naver span:first-child {
+  position: relative;
+  right: 140px;
+  top: -15px;
+  display: inline-block;
+  width: 62px;
+  height: 10px;
+  background-position: -200px -330px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  margin: 3px;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+  background-size: 457px 434px;
+}
+
+#happy-bean span:first-child {
+  position: relative;
+  right: 70px;
+  top: -38px;
+  display: inline-block;
+  width: 39px;
+  height: 13px;
+  background-position: -380px -198px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  margin: 3px 3px 2px;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+  background-size: 457px 434px;
+}
+
+#header-search {
+  clear: both;
+}
+
 #header-search > a {
   vertical-align: middle;
   text-decoration: none;
@@ -120,6 +189,7 @@ inline-block은 너비, 높이 지정크기 가능
   mdn web docs 참고
   https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
   https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context
+  https://developer.mozilla.org/ko/docs/Glossary/Stacking_context
   */
   /* 컨테이닝 블록의 모든 것
   - 감싼다고 해서 컨테이닝 블록은 아님
@@ -143,7 +213,7 @@ inline-block은 너비, 높이 지정크기 가능
   - auto와 hidden의 차이는 높이와 관련 (hidden으로 주면 아예 부모와 같게 길이가 짤림)
   */
   /*쌓임 맥락 stacking context*/
-  right: 0;
+  right: -1px;
   top: -1px;
 }
 /*

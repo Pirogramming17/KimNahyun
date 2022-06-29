@@ -26,15 +26,18 @@
       <!-- 가운데 정렬용 div/ center 태그 쓰지마셈 -->
       <!-- 속성명: 속성값 ; 속성명2: 속성값2;  -->
       <!-- css를 안만들고 html로 하는거, inline style(권장X)-->
-        <div style="background-color: yellow; overflow: auto;"><!--overflow auto로 바꿔서 블록 서식 맥락으로 바꿔줌-->
-            <div style="float: right; background-color: green; height: 200px;">둥둥둥둥</div>
-            <div>가나다라마바사아자차카타파하</div>
-        </div>
       <div class="center-align">
-        <div>
-          <span>네이버를 시작페이지로</span>
-          <span>쥬니어네이버</span>
-          <span>해피빈</span>
+        <div id="header-top">
+            <div id="naver-start">
+            <a href="https://help.naver.com/support/welcomePage/guide.help"><span></span><span>네이버를 시작페이지로</span></a>
+            </div>
+            
+            <div id="jr-naver">
+            <a href="https://jr.naver.com/"><span></span><span class="blind">쥬니어네이버 | </span></a>
+            </div>
+            <div id="happy-bean">
+            <a href="https://happybean.naver.com/"><span></span><span class="blind">해피빈</span></a>
+            </div>
         </div>
         <div id="header-search">
             <a href="http://www.naver.com">
