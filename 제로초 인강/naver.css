@@ -3,6 +3,12 @@
 * {
   box-sizing: border-box;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 /*
 Cascading Style Sheet
 -html 덮어씌워지는 속성 존재 
@@ -111,7 +117,10 @@ inline-block은 너비, 높이 지정크기 가능
   padding: 0;
   background: #19ce60;
   position: absolute;
-  /*mdn web docs 참고*/
+  /*
+  mdn web docs 참고
+  https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
+  */
   /* 컨테이닝 블록의 모든 것
   - 감싼다고 해서 컨테이닝 블록은 아님
   - static,relative면 블록 컨테이너 or 컨텐츠 영역
@@ -119,6 +128,7 @@ inline-block은 너비, 높이 지정크기 가능
   - absolute면 가장 가까운 조상의 내부 여백 영역
   - absolute면 기존 배치 흐름에서 벗어남
   - fixed면 페이지 영역
+  - 스크롤을 내려도 계속 따라오는 요소 ex) 광고페이지
   - html을 기본 컨테이닝 블록으로 생각
   -*/
 
@@ -126,6 +136,17 @@ inline-block은 너비, 높이 지정크기 가능
   /*쌓임 맥락 stacking context*/
   right: 0;
   top: -1px;
+}
+
+#fixed {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  display: inline-block;
+  width: 100px; /*컨테이닝 블록에 따른 %로도 크기 조정 가능*/
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 50px;
 }
 
 #search-image {
@@ -137,4 +158,5 @@ inline-block은 너비, 높이 지정크기 가능
   height: 22px;
   display: inline-block;
   vertical-align: top;
+  margin: 14px;
 }
