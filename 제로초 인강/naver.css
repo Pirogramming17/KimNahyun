@@ -2,7 +2,12 @@
 Cascading Style Sheet
 -html 덮어씌워지는 속성 존재 
 */
-/* 선택자(selector) */
+
+/* 선택자(selector)
+>는 자식
+띄어쓰기는 자손
+*/
+
 /* 
 내용이 같으면 동일하게 
 div#이름1, div#이름2 {}
@@ -10,7 +15,27 @@ div는 생략가능하나 다른 거는 꼭 적어줘야 함
 사용자 에이전트 스타일은 chrome, explorer, 버젼별로 다름
 */
 
+/*
+block은 너비를 100% 차지
+inline은 컨텐츠 너비 지정크기만 차지(빈 공간 마련 불가능)
+inline-block은 너비, 높이 지정크기 가능
+*/
+
 #header-center {
   margin: 0 auto;
-  width: 1080px;
+  width: 1080px; /*px는 상대적 길이, 모니터별로 다름*/
+  display: inline-block;
+}
+
+#header-search > h1 {
+  width: 280px;
+  display: inline-block;
+}
+
+#header-search h2 {
+  display: none;
+}
+#header-search fieldset {
+  width: 520px;
+  display: inline-block;
 }
