@@ -96,3 +96,22 @@ inline-block은 너비, 높이 지정크기 가능
   padding: 0;
   outline: none;
 }
+
+#header-search fieldset button {
+  width: 49px;
+  height: 49px;
+  border: none;
+  padding: 0;
+  background: #19ce60;
+}
+
+#search-image {
+  background: #19ce60;
+  background-image: url(./네이버\ 메인\ 사진.png);
+  background-position: -420px 0px;
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: top;
+}
