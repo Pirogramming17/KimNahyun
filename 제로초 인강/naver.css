@@ -8,6 +8,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕",
+    helvetica, "Apple SD Gothic Neo", sans-serif;
 }
 /*
 Cascading Style Sheet
@@ -48,11 +50,16 @@ inline-block은 너비, 높이 지정크기 가능
   width: 1080px; /*px는 상대적 길이, 모니터별로 다름*/
 }
 
+header {
+  height: 170px;
+}
+
 #header-top {
   position: absolute;
   right: -5px;
   cursor: pointer;
   float: right;
+  top: 11px;
 }
 
 #naver-start span:first-child {
@@ -82,6 +89,16 @@ inline-block은 너비, 높이 지정크기 가능
   font-size: 11px;
   line-height: 16px; /*글자의 높이 */
 }
+
+/*
+.nav-divider {
+  display: inline-block;
+  margin: 18px 16px 0;
+  width: 1px;
+  height: 14px;
+  background: #ebeef3;
+}
+*/
 
 #jr-naver span:first-child {
   position: relative;
@@ -115,6 +132,7 @@ inline-block은 너비, 높이 지정크기 가능
 
 #header-search {
   clear: both;
+  padding-top: 36px;
 }
 
 #header-search > a {
@@ -123,6 +141,7 @@ inline-block은 너비, 높이 지정크기 가능
 }
 
 #header-search h1 {
+  margin-left: 11px;
   vertical-align: middle;
   width: 222px;
   height: 52px;
@@ -151,7 +170,7 @@ inline-block은 너비, 높이 지정크기 가능
   display: none;
 }
 #header-search fieldset {
-  margin-left: 20px;
+  margin-left: 19px;
   /*
   padding-top: 12px;
   padding-right: 0;
@@ -160,7 +179,7 @@ inline-block은 너비, 높이 지정크기 가능
   */
   padding: 12px 0px 12px 10px;
   width: 582px;
-  height: 52px;
+  height: 56px;
   display: inline-block;
   border: 2px solid #19ce60; /* hex */
   /* rgb는 rgb(x,y,z) */
@@ -180,7 +199,7 @@ inline-block은 너비, 높이 지정크기 가능
 
 #header-search fieldset button {
   width: 50px;
-  height: 50px;
+  height: 54px;
   border: none;
   padding: 0;
   background: #19ce60;
@@ -241,6 +260,12 @@ inline-block은 너비, 높이 지정크기 가능
   margin: 14px;
 }
 
+nav {
+  height: 46px;
+  border-top: 1px solid #d1d8e4; /*solid, dashed, dotted 존재*/
+  border-bottom: 1px solid #d1d8e4;
+}
+
 nav a {
   text-decoration: none;
   color: #19ce60;
@@ -248,7 +273,7 @@ nav a {
 }
 nav ul {
   margin: 0;
-  padding: 0;
+  padding: 7px 0 0 4px;
   list-style: none;
 }
 
@@ -305,4 +330,16 @@ nav li:last-child span:first-child {
   width: 12px;
   height: 14px;
   background-position: -444px -49px;
+}
+
+#search-ranking {
+  position: absolute;
+  top: 180px;
+  right: 250px;
+}
+
+#rank-number {
+  margin-top: -9px;
+  color: #00ab33;
+  font-size: 16px;
 }
