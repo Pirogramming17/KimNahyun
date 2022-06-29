@@ -119,6 +119,7 @@ inline-block은 너비, 높이 지정크기 가능
   /*
   mdn web docs 참고
   https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
+  https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context
   */
   /* 컨테이닝 블록의 모든 것
   - 감싼다고 해서 컨테이닝 블록은 아님
@@ -129,9 +130,18 @@ inline-block은 너비, 높이 지정크기 가능
   - fixed면 페이지 영역
   - 스크롤을 내려도 계속 따라오는 요소 ex) 광고페이지
   - html을 기본 컨테이닝 블록으로 생각
-  -*/
+  */
 
-  /*블록 서식 문맥 block formatting context*/
+  /*블록 서식 맥락 block formatting context
+  - 부모 입장에서 자식을 누구까지 포함해야하나 결정하는 요소
+  - 부모 태그라 해서 모든 걸 다 감싸는 게 아님
+  - float
+  -> float은 존재하는 지 몰라 밑의 요소가 둥둥 뜨게 됨, 그렇다고 겹치진 않음, 아래가 float을 감싸는 느낌
+  - position이 absolute or fixed
+  - 인라인 블록일 때 생김.
+  - overflow가 visible이 아닌 요소(기본값 visible)
+  - auto와 hidden의 차이는 높이와 관련 (hidden으로 주면 아예 부모와 같게 길이가 짤림)
+  */
   /*쌓임 맥락 stacking context*/
   right: 0;
   top: -1px;
