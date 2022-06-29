@@ -38,15 +38,46 @@ inline-block은 너비, 높이 지정크기 가능
   display: inline-block;
 }
 
-#header-search > h1 {
-  width: 280px;
+#header-search > a {
+  text-decoration: none;
+}
+
+#header-search h1 {
+  width: 222px;
+  height: 52px;
   display: inline-block;
+  background-position: 0 -158px;
+  background-size: 457px 434px;
+  background-image: url(./네이버\ 메인\ 사진.png);
+  background-repeat: no-repeat;
+  /*background: url(./네이버\ 메인\ 사진.png) 0 -158px  no-repeat*/
+
+  /*
+  vertical-align: top;
+  content: "";
+  text-indent: 100%;
+  overflow: hidden;
+  */
+}
+
+#header-search h1 > span {
+  display: none;
 }
 
 #header-search h2 {
   display: none;
 }
 #header-search fieldset {
-  width: 520px;
+  margin-left: 20px;
+  /*
+  padding-top: 12px;
+  padding-right: 0;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  */
+  padding: 12px 0px 12px 10px;
+  width: 582px;
+  height: 52px;
   display: inline-block;
+  border: 2px solid #19ce60;
 }
