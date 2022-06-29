@@ -181,6 +181,14 @@ nav li {
   letter-spacing: -0.3px;
 }
 
+/*CSS 우선순위*/
+/*
+기본적으로 뒤에 나오는 css가 우선순위가 높다
+!important > inline style attribute > id > 다른 attribute > tag element
+우선순위가 같다면 개수가 많은 css -> 차라리 여러개 태그 붙이는 꼼수가 낫다
+꾸며주는 게 더 많아도 우선순위 up!
+important는 최후의 수단! -> 협업에 방해가 됨
+*/
 nav li span:first-child {
   background-image: url(./네이버\ 메인\ 사진.png);
   background-repeat: no-repeat;
