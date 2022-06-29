@@ -38,7 +38,7 @@ inline-block은 너비, 높이 지정크기 가능
 */
 
 #header-center {
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   width: 1080px; /*px는 상대적 길이, 모니터별로 다름*/
   display: inline-block;
 }
@@ -58,6 +58,8 @@ inline-block은 너비, 높이 지정크기 가능
   background-image: url(./네이버\ 메인\ 사진.png);
   background-repeat: no-repeat;
   /*background: url(./네이버\ 메인\ 사진.png) 0 -158px  no-repeat*/
+  position: relative;
+  top: -7px;
 
   /*
   vertical-align: top;
@@ -75,7 +77,6 @@ inline-block은 너비, 높이 지정크기 가능
   display: none;
 }
 #header-search fieldset {
-  vertical-align: middle;
   margin-left: 20px;
   /*
   padding-top: 12px;
@@ -89,20 +90,31 @@ inline-block은 너비, 높이 지정크기 가능
   display: inline-block;
   border: 2px solid #19ce60; /* hex */
   /* rgb는 rgb(x,y,z) */
+  vertical-align: middle;
+  position: relative;
 }
 
 #header-search fieldset input {
   border: none;
   padding: 0;
   outline: none;
+  vertical-align: top;
+  width: 444px;
+  height: 24px;
+  display: inline-block;
 }
 
 #header-search fieldset button {
-  width: 49px;
-  height: 49px;
+  width: 50px;
+  height: 50px;
   border: none;
   padding: 0;
   background: #19ce60;
+  position: absolute;
+  /*블록 서식 문맥 block formatting context*/
+  /*쌓임 맥락 stacking context*/
+  right: 0;
+  top: -1px;
 }
 
 #search-image {
