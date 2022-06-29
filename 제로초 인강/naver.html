@@ -14,6 +14,7 @@
         ./은 현재 폴더 의미 
     -->
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1" />
+    <link rel="stylesheet" href="./naver.css" />
   </head>
   <body>
     <!--
@@ -21,26 +22,31 @@
         div를 남발하면 무슨 구획인지 모르니, header, footer 등 naming 필요
     -->
     <header>
-      <h1>
-        <!-- 
-                속성/부가정보는 attribute
-                주석은 comment
+      <!-- 가운데 정렬용 div/ center 태그 쓰지마셈 -->
+      <!-- 속성명: 속성값 ; 속성명2: 속성값2;  -->
+      <!-- css를 안만들고 html로 하는거, inline style(권장X)-->
+      <div id="header-center">
+        <h1>
+          <!-- 
+            속성/부가정보는 attribute
+            주석은 comment
             -->
-        <a href="http://www.naver.com">네이버</a>
-      </h1>
-      <h2>검색창</h2>
-      <fieldset>
-        <!--legend는 범례라는 의미-->
-        <legend>검색</legend>
-        <input />
-        <!-- checkbox는 다중택 가능
-        <input type="checkbox" />
+          <a href="http://www.naver.com">네이버</a>
+        </h1>
+        <h2>검색창</h2>
+        <fieldset>
+          <!--legend는 범례라는 의미-->
+          <legend>검색</legend>
+          <input />
+          <!-- checkbox는 다중택 가능
+            <input type="checkbox" />
             radio는 둘 다 선택 불가능
-        <input type="radio" name="group" />
-        <input type="radio" name="group" />
-        사이즈 조절 가능 텍스트입력공간<textarea></textarea>-->
-        <button>검색</button>
-      </fieldset>
+            <input type="radio" name="group" />
+            <input type="radio" name="group" />
+            사이즈 조절 가능 텍스트입력공간<textarea></textarea>-->
+          <button>검색</button>
+        </fieldset>
+      </div>
     </header>
 
     <nav>
