@@ -1,0 +1,47 @@
+@import "./reset.css";
+
+@keyframes loading {
+  0% {
+    transform: scaleY(1); /*y 축으로 얼마나 늘릴지 결정 1은 1배*/
+  }
+  30% {
+    transform: scaleY(1.5);
+  }
+  60% {
+    transform: scaleY(1);
+  }
+  90% {
+    transform: scaleY(1);
+  }
+}
+
+.loading-bars {
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.loading-bars div {
+  width: 15px;
+  height: 60px;
+  background-color: red;
+  margin: 0 3px;
+  animation: loading 1s ease-in-out infinite;
+}
+
+.loading-bars div:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.loading-bars div:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.loading-bars div:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.loading-bars div:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.loading-bars div:nth-child(5) {
+  animation-delay: 0.9s;
+}
