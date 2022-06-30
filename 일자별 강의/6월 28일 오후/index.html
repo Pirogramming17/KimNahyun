@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid black;
+        height: 100px;
+      }
+      p {
+        border: 1px solid red;
+      }
+      span {
+        border: 1px solid blue;
+      }
+      .container {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.naver.com/" target="_blank">네이버</a>
+    <!-- Shift + alt + 상하 방향키-->
+    <h1>Lorem, ipsum dolor.</h1>
+    <h2>Lorem, ipsum dolor.</h2>
+    <h3>Lorem, ipsum dolor.</h3>
+    <h4>Lorem, ipsum dolor.</h4>
+    <h5>Lorem, ipsum dolor.</h5>
+    <h6>Lorem, ipsum dolor.</h6>
+    <!-- block element -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus,
+      magnam.
+      <br />
+      <br />
+      <br />
+      <br />
+      Lorem ipsum dolor sit amet.
+    </p>
+    <!-- inline element-->
+    <span>lorem.</span>
+
+    <!--ol ordered list 순서 0-->
+    <!--ul unordered list 순서 X-->
+    <ol>
+      <li>여행</li>
+      <li>넷플릭스</li>
+      <li>운동</li>
+    </ol>
+
+    <ul>
+      <li>여행</li>
+      <li>넷플릭스</li>
+      <li>운동</li>
+    </ul>
+
+    <!--입력창-->
+    <form>
+      <!--새로고침하기 위해서는 form에-->
+      <input type="text" />
+      <button>검색</button>
+    </form>
+
+    <section id="container"></section>
+    <div id="container"></div>
+    <!--id는 하나만 가능-->
+    <div class="container box"></div>
+    <div class="container box"></div>
+    <!--클래스는 여러개 가능-->
+
+    <!--body에서 style을 바꾸는 건 별로 안좋음-->
+    <div style="color: red">Lorem.</div>
+  </body>
+</html>
