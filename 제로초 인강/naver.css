@@ -11,6 +11,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕",
     helvetica, "Apple SD Gothic Neo", sans-serif;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.inline-block {
+  display: inline-block;
+}
 /*
 Cascading Style Sheet
 -html 덮어씌워지는 속성 존재 
@@ -409,8 +422,12 @@ main {
 }
 
 #main-centered {
-  display: inline-block;
   padding: 8px 10px 0;
+  width: 1100px;
+}
+
+#main-first-block {
+  display: inline-block;
   width: 100%;
 }
 
@@ -425,11 +442,20 @@ main {
 
 #main-login {
   float: left;
-  width: 350px;
+  width: 348px;
   height: 135px;
   vertical-align: top;
   background-color: white;
   margin-bottom: 8px;
+}
+
+#main-second-block .inline-block:first-child {
+  width: 700px;
+}
+
+#main-second-block .inline-block:last-child {
+  width: 348px;
+  vertical-align: top;
 }
 
 #main-ytn {
@@ -441,6 +467,11 @@ main {
   margin-bottom: 8px;
 }
 
+#main-ytn h3,
+#main-ytn ol {
+  display: inline-block;
+}
+
 #main-newstand {
   display: inline-block;
   width: 700px;
@@ -448,6 +479,11 @@ main {
   background-color: white;
   margin-right: 8px;
   margin-bottom: 8px;
+}
+
+#main-newstand h3 {
+  height: 45px;
+  border-bottom: 1px solid #ebeef3;
 }
 
 #main-weather {
@@ -460,7 +496,7 @@ main {
 
 #main-second-ad {
   display: inline-block;
-  width: 350px;
+  width: 348px;
   height: 200px;
   background: #555;
   margin-bottom: 8px;
@@ -475,7 +511,7 @@ main {
 
 #main-shopping {
   display: inline-block;
-  width: 350px;
+  width: 348px;
   height: 970px;
   background: white;
 }
@@ -489,7 +525,7 @@ main {
 
 #main-third-ad {
   display: inline-block;
-  width: 350px;
+  width: 348px;
   height: 130px;
   background: #555;
 }
