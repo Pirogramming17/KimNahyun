@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piro17 JS</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <button class="open-btn">Open</button>
+
+      <div class="modal-wrapper" style="display: none">
+        <div class="modal">
+          <button class="close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function Modal() {
+        this.init = () => {
+          this.setElements();
+          this.setEvents();
+        };
+        this.setElements = () => {
+          this.$openBtn = document.querySelector(".open-btn");
+          this.$modalWrapper = document.querySelector(".modal-wrapper");
+          this.$closeBtn = document.querySelector(".close-btn");
+        };
+
+        this.setEvents = () => {
+          this.$openBtn.addEventListener("click", () => {
+            this.$modalWrapper.style.display = "";
+          });
+
+          this.$closeBtn.addEventListener("click", () => {
+            this.$modalWrapper.style.display = "none";
+          });
+        };
+      }
+
+      const modal = new Modal();
+      modal.init();
+    </script>
+
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button {
+        font-family: "Pretendard";
+        font-weight: 500;
+        font-size: 24px;
+        padding: 8px 10px;
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        transition: 0.2s;
+        color: #222;
+      }
+
+      button:hover {
+        background-color: #f3f3f3;
+      }
+
+      .modal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #00000080;
+      }
+
+      .modal {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 480px;
+        height: 640px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+    </style>
+  </body>
+</html>
