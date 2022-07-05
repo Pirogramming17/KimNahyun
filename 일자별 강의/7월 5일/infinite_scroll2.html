@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Piro17 JS</title>
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard.css"
+		/>
+	</head>
+	<body>
+		<ul class="container">
+			<li>
+				<img
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png"
+					alt="apple logo"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png"
+					alt="apple logo"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png"
+					alt="apple logo"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png"
+					alt="apple logo"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png"
+					alt="apple logo"
+				/>
+			</li>
+		</ul>
+		<div class="observed-bottom"></div>
+
+		<script>
+			class InfiniteScroll {
+				constructor() {
+					this.setElements()
+					this.setObserver()
+				}
+
+				setElements() {
+					this.$container = document.querySelector('.container')
+					this.$observedBottom = document.querySelector('.observed-bottom')
+				}
+
+				observeCallback(entries) {
+					if (!entries[0].isIntersecting) return
+
+					const newItem = document.createElement('li')
+					newItem.innerHTML = `
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png"
+							alt="apple logo"
+						/>
+					`
+					this.$container.appendChild(newItem)
+				}
+
+				setObserver() {
+					const observerOption = {
+						rootMargin: '300px',
+						threshold: 0,
+					}
+
+					const observer = new IntersectionObserver(
+						this.observeCallback.bind(this),
+						observerOption
+					)
+					/*
+					const observer = new IntersectionObserver(
+						(entries) => { this.observeCallback(entries) },
+						observerOption
+					)
+					*/
+
+					observer.observe(this.$observedBottom)
+				}
+			}
+
+			const infiniteScroll = new InfiniteScroll()
+		</script>
+
+		<style>
+			.container {
+				padding: 48px 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 36px;
+			}
+		</style>
+	</body>
+</html>
