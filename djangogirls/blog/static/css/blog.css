@@ -1,7 +1,3 @@
-.post {
-  padding-left: 15px;
-}
-
 .page-header {
   background-color: #ff9400;
   margin-top: 0;
@@ -29,12 +25,9 @@ h4 {
 }
 
 .date {
-  color: #828282;
-}
-
-.date p {
   color: green;
 }
+
 .save {
   float: right;
 }
