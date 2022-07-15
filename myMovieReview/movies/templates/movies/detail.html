@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DETAIL</title>
+  </head>
+  <body>
+    <h1>REVIEW_DETAIL</h1>
+    <article>
+      <h2>영화제목 : {{ movie.title }}</h2>
+      <p>개봉연도: {{ movie.year }}</p>
+      <p>감독 : {{ movie.director }}</p>
+      <p>주연 : {{ movie.actor }}</p>
+      <p>장르 : {{ movie.genre }}</p>
+      <p>별점 : {{ movie.star }}</p>
+      <p>러닝타임 : {{ movie.time }}</p>
+      <div>{{movie.review}}</div>
+    </article>
+
+    <div>
+      <form action="{% url 'movies:update' movie.id %}" method="movie">
+        {% csrf_token %}
+        <button>수정</button>
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'movies:delete' movie.id %}" method="movie">
+        {% csrf_token %}
+        <button>삭제</button>
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'movies:home' %}" method="movie">
+        {% csrf_token %}
+        <button>my Movie reviews</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UPDATE</title>
+  </head>
+  <body>
+    <h1>REVIEW_UPDATE</h1>
+    <a href="{% url 'movies:home' %}">Home</a>
+    <form action="{% url 'movies:update' movie.id %}" method="movie">
+      {% csrf_token %}
+      <h2>
+        <input
+          type="text"
+          name="title"
+          placeholder="영화제목"
+          value="{{movie.title}}"
+        />
+      </h2>
+      <p>
+        <input
+          type="number"
+          name="year"
+          placeholder="개봉연도"
+          value="{{movie.year}}"
+        />
+      </p>
+      <p>
+        <input
+          type="text"
+          name="director"
+          placeholder="감독"
+          value="{{movie.director}}"
+        />
+      </p>
+      <p>
+        <input
+          type="text"
+          name="actor"
+          placeholder="주연"
+          value="{{movie.actor}}"
+        />
+      </p>
+      <p>
+        <input
+          type="text"
+          name="genre"
+          placeholder="장르"
+          value="{{movie.genre}}"
+        />
+      </p>
+      <p>
+        <input
+          type="number"
+          name="star"
+          placeholder="별점"
+          value="{{movie.star}}"
+        />
+      </p>
+      <p>
+        <input
+          type="number"
+          name="time"
+          placeholder="러닝타임"
+          value="{{movie.time}}"
+        />
+      </p>
+      <textarea name="review" id="" cols="30" rows="10">
+{{movie.review}}</textarea
+      >
+
+      <div>
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+  </body>
+</html>
