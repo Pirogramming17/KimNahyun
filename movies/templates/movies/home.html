@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+  </head>
+  <body>
+    {% for movie in movies %}
+    <article>
+      <h1>{{movie.title}}</h1>
+      <p>{{movie.year}} 년</p>
+      <p>{{movie.genre}}</p>
+      <p>{{movie.star}} 점</p>
+    </article>
+    {% endfor %}
+
+    <a href="{% url 'movies:create' %}">New_Review</a>
+  </body>
+</html>
