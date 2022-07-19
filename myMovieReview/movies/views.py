@@ -28,7 +28,9 @@ def create(request):
 
         return redirect("/")
 
-    context = {}
+    context = {
+
+    }
 
     return render(request, template_name="movies/create.html",
     context = context)
@@ -52,10 +54,13 @@ def update(request,id):
         time = request.POST["time"]
         review = request.POST["review"]
 
+        movie.save()
+        
         Movie.objects.filter(id=id).update(title = title, year = year, director = director,
         actor = actor, genre = genre, star = star, time = time,
         review = review)
 
+        
         return redirect(f"/movie/{id}")
 
     elif request.method == "GET":
@@ -63,6 +68,7 @@ def update(request,id):
         context = {
             "movie" : movie
         }    
+
         return render(request, template_name="movies/update.html",
         context=context)
 
