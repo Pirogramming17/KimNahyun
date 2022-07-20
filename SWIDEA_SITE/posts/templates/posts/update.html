@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 수정</title>
+  </head>
+  <body>
+    <form action="{% url 'posts:update' post.id %}" method="post">
+      {% csrf_token %}
+      <h2>
+        <input
+          name="idea"
+          type="text"
+          name="idea"
+          placeholder="아이디어명"
+          value="{{post.idea}}"
+        />
+      </h2>
+      <p>
+        <input name="photo" type="file" name="photo" value="{{post.photo}}" />
+      </p>
+      <textarea name="content" id="" cols="30" rows="10">
+{{post.content}}</textarea
+      >
+      <p>
+        <input
+          name="interest"
+          type="number"
+          name="interest"
+          placeholder="0"
+          value="{{ post.interest }}"
+        />
+      </p>
+      <p>
+        <input name="tool" type="text" name="tool" value="{{ post.tool }}" />
+      </p>
+
+      <div>
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+  </body>
+</html>

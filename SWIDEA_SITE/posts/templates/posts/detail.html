@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 디테일</title>
+  </head>
+  <body>
+    <article>
+      <h2>{{ post.idea }}</h2>
+      {% if post.photo %}
+      <p>
+        <img src="{{ post.photo.url }}" />
+      </p>
+      {% endif %}
+      <p>1) 아이디어 관심도</p>
+      <p>{{ post.interest }}</p>
+      <p>2) 예상 개발 툴</p>
+      <p>{{ post.tool }}</p>
+      <p>3) 아이디어 설명</p>
+      <div>{{post.content}}</div>
+
+      <div>
+        {% for post in all_post %}
+        <a href="{% url 'posts:detail' post.id %}">{{ post.idea }}</a>
+        {% endfor %}
+      </div>
+    </article>
+
+    <div>
+      <form action="{% url 'posts:delete' post.id %}" method="post">
+        {% csrf_token %}
+        <button>삭제</button>
+      </form>
+    </div>
+
+    <div>
+      <form action="{% url 'posts:home' %}" method="post">
+        {% csrf_token %}
+        <button>목록</button>
+      </form>
+    </div>
+
+    <div>
+      <form action="{% url 'posts:update' post.id %}" method="post">
+        {% csrf_token %}
+        <button>수정</button>
+      </form>
+    </div>
+  </body>
+</html>
