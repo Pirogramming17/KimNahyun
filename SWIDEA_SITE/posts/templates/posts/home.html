@@ -48,6 +48,17 @@
             {% if post.photo %}
             <p>
               <img src="{{ post.photo.url }}" />
+              <button
+                class="idea__like_btn"
+                id="{{ idea.id }}"
+                onclick="like({{ idea.id }})"
+              >
+                {% if idea.like == False %}
+                <i class="fa-regular fa-star"></i>
+                {% else %}
+                <i class="fa-solid fa-star"></i>
+                {% endif %} 찜하기
+              </button>
             </p>
             {% endif %}
             <h1 class="idea__title">

@@ -38,6 +38,13 @@
           <div class="idea__description">
             <div class="idea__like">
               <p class="idea__title">{{ post.idea }}</p>
+              <div class="idea__like_btn">
+                {% if post.like == False %}
+                <i class="fa-regular fa-star"></i>
+                {% else %}
+                <i class="fa-solid fa-star"></i>
+                {% endif %}
+              </div>
             </div>
             <div>
               <p class="idea__interest">1) 아이디어 관심도</p>

@@ -40,7 +40,12 @@
           >
             {% csrf_token %}
             <p>아이디어명:</p>
-            <input type="text" name="title" value="{{post.title}}" />
+            <input type="text" name="title" value="{{post.name}}" />
+            <div>
+              <p>Image:</p>
+              <p>Currently: {{ post.photo.url }}</p> 
+              <p>Change: <input type="file" name="photo" /></p>
+            </div>
 
             <p>아이디어 설명:</p>
             <textarea rows="10" cols="50" name="content">{{post.content}}</textarea
