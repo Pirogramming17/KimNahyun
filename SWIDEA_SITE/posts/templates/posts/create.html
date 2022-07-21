@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,29 +8,56 @@
     <title>아이디어 등록</title>
   </head>
   <body>
-    <form
-      action="{% url 'posts:create' %}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      {% csrf_token %}
-      <h2>
-        <input type="text" name="idea" placeholder="아이디어명" />
-      </h2>
-      <p>
-        <input type="file" name="photo" />
-      </p>
-      <textarea name="content" id="" cols="30" rows="10"></textarea>
-      <p>
-        <input type="number" name="interest" placeholder="0" />
-        <input type="text" name="tool" placeholder="" />
-      </p>
-
-      <div>
-        <input type="submit" value="제출" />
+    <header>
+      <div class="header__bar container">
+        <div class="header__title">
+          <a href="{% url 'posts:home' %}">My <span>SW Idea</span> Manage</a>
+        </div>
+        <div class="header__navbar">
+          <ul>
+            <li><a href="{% url 'posts:create' %}">아이디어 등록</a></li>
+            <li><a href="{% url 'posts:home' %}">아이디어 관리</a></li>
+            <li><a href="{% url 'posts:toolcreate' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'posts:toolhome' %}">개발툴 관리</a></li>
+          </ul>
+        </div>
       </div>
-    </form>
-
-    <a href="{% url 'posts:home' %}">Home</a>
+    </header>
+    <main>
+      <div class="idea__list container">
+        <div class="idea__desc">
+          <h2 class="idea__desc1">Idea Register</h2>
+          <p class="idea__desc2">
+            아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!
+          </p>
+        </div>
+        <div class="idea__create_box">
+          <form
+            action="{% url 'posts:create' %}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <p>아이디어명:</p>
+            <input type="text" name="title" />
+            <p>Image:</p>
+            <input type="file" name="photo" />
+            <p>아이디어 설명:</p>
+            <textarea rows="10" cols="50" name="content"></textarea>
+            <p>아이디어 관심도:</p>
+            <input type="number" name="interest" value="0" />
+            <p>예상 개발 툴:</p>
+            <select name="tool">
+              {% for tool in tools %}
+              <option value="{{ tool.name }}">{{ tool.name }}</option>
+              {% endfor %}
+            </select>
+            <div class="idea__submit">
+              <button type="submit">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개발툴 관리</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__bar container">
+        <div class="header__title">
+
+        </div>
+        <div class="header__navbar">
+          <ul>
+            <li><a href="{% url 'posts:create' %}">아이디어 등록</a></li>
+            <li><a href="{% url 'posts:home' %}">아이디어 관리</a></li>
+            <li><a href="{% url 'posts:toolcreate' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'posts:toolhome' %}">개발툴 관리</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="idea__box container">
+        <div class="idea__desc">
+          <h2 class="idea__desc1">DevTool List</h2>
+          <p class="idea__desc2">
+            개발툴 목록 페이지 입니다. 자신이 사용가능한 개발툴의 목록을 확인해
+            보세요.
+          </p>
+        </div>
+        <ul class="tool__list">
+          {% for tool in tools %}
+          <li>
+            <a href="{% url 'posts:tooldetail' tool.id %}"
+              ><div class="tool__name">{{ tool.name }}</div></a
+            >
+            <div class="tool__kind">{{ tool.kind }}</div>
+            <div class="tool__content">{{ tool.content }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </main>
+  </body>
+</htm

@@ -1,28 +1,74 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="ko">
-  {% load static %}
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인 페이지</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <title>아이디어 관리</title>
   </head>
   <body>
-    {% for post in posts %}
-    <article>
-      {% if post.photo %}
-      <p>
-        <img src="{{ post.photo.url }}" />
-      </p>
-      {% endif %}
-      <div>
-        <a href="{% url 'posts:detail' post.id %}">{{post.idea}}</a>
-        <p>예상 개발 툴 : {{post.tool}}</p>
-        <p>아이디어 관심도 : {{post.interest}}</p>
+    <header>
+      <div class="header__bar container">
+        <div class="header__title">
+          <a href="{% url 'posts:home' %}">My <span>SW Idea</span> Manage</a>
+        </div>
+        <div class="header__navbar">
+          <ul>
+            <li><a href="{% url 'posts:create' %}">아이디어 등록</a></li>
+            <li><a href="{% url 'posts:home' %}">아이디어 관리</a></li>
+            <li><a href="{% url 'posts:toolcreate' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'posts:toolhome' %}">개발툴 관리</a></li>
+          </ul>
+        </div>
       </div>
-    </article>
-    {% endfor %}
-    <a href="{% url 'posts:create' %}"> 아이디어 등록 </a>
+    </header>
+    <main>
+      <div class="idea__list container">
+        <div class="idea__desc">
+          <h2 class="idea__desc1">Idea List</h2>
+          <p class="idea__desc2">나의 아이디어를 잊지 말고 기록해보세요</p>
+        </div>
+
+        <div class="idea__sort">
+          <form action="{% url 'posts:home' %}">
+            <select name="sort" onchange="this.form.submit()">
+              <option value="default" selected>--정렬기준--</option>
+              <option value="like">찜하기순</option>
+              <option value="createAt">등록순</option>
+              <option value="updateAt">최신순</option>
+              <option value="title">이름순</option>
+            </select>
+          </form>
+        </div>
+
+        <div class="idea__flex_box">
+          {% for post in posts %}
+          <div class="idea__box">
+            {% if post.photo %}
+            <p>
+              <img src="{{ post.photo.url }}" />
+            </p>
+            {% endif %}
+            <h1 class="idea__title">
+              <a href="{% url 'posts:detail' post.id %}">{{post.idea}}</a>
+            </h1>
+            <hr class="idea__hr" />
+            <div class="idea__content">
+              <p>예상 개발 툴: {{post.tool.name}}</p>
+              <div>
+                <p>
+                  아이디어 관심도:
+                  <span onclick="plus({{ post.id }})"> + </span>
+                  <span id="{{post.id}}">{{post.interest}}</span>
+                  <span onclick="minus({{ post.id }})"> - </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </main>
   </body>
 </html>

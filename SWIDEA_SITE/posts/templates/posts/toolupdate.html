@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개발툴 수정</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__bar container">
+        <div class="header__title">
+          <a href="{% posts:home' %}">My <span>SW tool</span> Manage</a>
+        </div>
+        <div class="header__navbar">
+          <ul>
+            <li><a href="{% url 'posts:create' %}">아이디어 등록</a></li>
+            <li><a href="{% url 'posts:home' %}">아이디어 관리</a></li>
+            <li><a href="{% url 'posts:toolcreate' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'posts:toolhome' %}">개발툴 관리</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="tool__list container">
+        <div class="tool__desc">
+          <h2 class="tool__desc1">DevTool Detail Update</h2>
+          <p class="tool__desc2">
+            개발툴 세부내용 수정 페이지 입니다. 개발툴에 대해 수정사항이 있으면
+            고쳐보아요.
+          </p>
+        </div>
+        <div class="tool__update_box">
+          <form
+            action="{% url 'posts:toolupdate' tool.id %}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <p>이름:</p>
+            <input type="text" name="name" value="{{tool.name}}" />
+            <p>종류:</p>
+            <input type="text" name="kind" value="{{tool.kind}}" />
+            <p>개발툴 설명:</p>
+            <textarea name="content" id="" cols="50" rows="10">
+{{ tool.content }}</textarea
+            >
+            <div class="tool__submit">
+              <button type="submit">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

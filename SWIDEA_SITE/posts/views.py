@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, Tool
 
 # Create your views here.
 def home(request):
@@ -64,4 +64,58 @@ def delete(request, id):
     if request.method =="POST":
         Post.objects.filter(id=id).delete()
         return redirect("/")
+
+def toolhome(request):
+    tools = Tool.objects.all()
+    context = {
+        "tools": tools
+    }
+    return render(request, template_name='posts/toolhome.html', context=context)
+
+def toolcreate(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        kind = request.POST["kind"]
+        content = request.POST["content"]
+
+        Tool.objects.create(
+        name=name,
+        kind=kind,
+        content=content
+        )
+    return render(request, template_name='posts/toolcreate.html')
+
+def tooldetail(request, id):
+    tool = Tool.objects.get(id=id)
+    context = {
+        "tool": tool,
+        "ideas": Post.objects.filter(tool=tool)
+    }
+    return render(request, template_name="posts/tooldetail.html", context=context)
+
+def toolupdate(request, id):
+    tool = Tool.objects.get(id=id)
+    if request.method == "POST":
+        name = request.POST["name"]
+        kind = request.POST["kind"]
+        content = request.POST["content"]
+
+        Tool.objects.filter(id=id).update(
+        name = name,
+        kind = kind,
+        content = content,
+        )
+        return redirect(f"/tooldetail/{id}")
+
+    elif request.method == "GET":
+        tool = Tool.objects.get(id=id)
+        context = {
+        "tool": tool
+        }
+    return render(request, 'posts/toolupdate.html', context=context)
+
+def tooldelete(request, id):
+    if request.method == "POST":
+        Tool.objects.filter(id=id).delete()
+        return redirect('/')
 

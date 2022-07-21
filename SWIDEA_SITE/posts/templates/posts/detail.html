@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,46 +8,66 @@
     <title>아이디어 디테일</title>
   </head>
   <body>
-    <article>
-      <h2>{{ post.idea }}</h2>
-      {% if post.photo %}
-      <p>
-        <img src="{{ post.photo.url }}" />
-      </p>
-      {% endif %}
-      <p>1) 아이디어 관심도</p>
-      <p>{{ post.interest }}</p>
-      <p>2) 예상 개발 툴</p>
-      <p>{{ post.tool }}</p>
-      <p>3) 아이디어 설명</p>
-      <div>{{post.content}}</div>
-
-      <div>
-        {% for post in all_post %}
-        <a href="{% url 'posts:detail' post.id %}">{{ post.idea }}</a>
-        {% endfor %}
+    <header>
+      <div class="header__bar container">
+        <div class="header__title">
+          <a href="{% url 'posts:home' %}">My <span>SW Idea</span> Manage</a>
+        </div>
+        <div class="header__navbar">
+          <ul>
+            <li><a href="{% url 'posts:create' %}">아이디어 등록</a></li>
+            <li><a href="{% url 'posts:home' %}">아이디어 관리</a></li>
+            <li><a href="{% url 'posts:toolcreate' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'posts:toolhome' %}">개발툴 관리</a></li>
+          </ul>
+        </div>
       </div>
-    </article>
+    </header>
+    <main>
+      <div class="idea__list container">
+        <div class="idea__desc">
+          <h2 class="idea__desc1">Idea Detail</h2>
+          <p class="idea__desc2">
+            아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을
+            자세히 살펴보세요.
+          </p>
+        </div>
 
-    <div>
-      <form action="{% url 'posts:delete' post.id %}" method="post">
-        {% csrf_token %}
-        <button>삭제</button>
-      </form>
-    </div>
+        <div class="idea__flex_box">
+          <img src="{{ post.image.url }}" alt="" />
+          <div class="idea__description">
+            <div class="idea__like">
+              <p class="idea__title">{{ post.idea }}</p>
+            </div>
+            <div>
+              <p class="idea__interest">1) 아이디어 관심도</p>
+              {{ post.interest }}
+            </div>
+            <div>
+              <p class="idea__tool">2) 예상 개발 툴</p>
+              <a href="{% url 'posts:tooldetail' post.tool.id %}">
+                <div class="idea__tool_link">{{ post.tool.name }}</div></a
+              >
+            </div>
+            <div>
+              <p class="idea__content">3) 아이디어 설명</p>
+              {{ post.content }}
+            </div>
+          </div>
+        </div>
 
-    <div>
-      <form action="{% url 'posts:home' %}" method="post">
-        {% csrf_token %}
-        <button>목록</button>
-      </form>
-    </div>
-
-    <div>
-      <form action="{% url 'posts:update' post.id %}" method="post">
-        {% csrf_token %}
-        <button>수정</button>
-      </form>
-    </div>
+        <div class="idea__button">
+          <form action="{% url 'posts:delete' post.id %}" method="post">
+            {% csrf_token %} <button class="idea__del_btn">삭제</button>
+          </form>
+          <a href="{% url 'posts:home' %}"
+            ><button class="idea__list_btn">목록</button>
+          </a>
+          <a href="{% url 'posts:update' post.id %}"
+            ><button class="idea__mod_btn">수정</button></a
+          >
+        </div>
+      </div>
+    </main>
   </body>
 </html>
