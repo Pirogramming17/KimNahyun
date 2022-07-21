@@ -1,34 +1,58 @@
 from django.shortcuts import render, redirect
 from .models import Post, Tool
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
+@csrf_exempt
 def home(request):
-    posts = Post.objects.all()
-    print(posts)
+  if(request.method == "POST"):
+    req = json.loads(request.body)
+    try:
+      Post.objects.filter(id = req["id"]).update(interest = req["interest"])
+    except KeyError:
+      pass
+    like = Post.objects.get(id = req["star"]).like
+    Post.objects.filter(id = req["star"]).update(like = not like)
 
-    context = {
-        "posts":posts
-    }
-    return render(request, template_name="posts/home.html", context=context)
+  posts = Post.objects.all()
+  sort = request.GET.get("sort", "")
+  if sort == "like":
+    posts = posts.order_by("-like")
+  elif sort == "createAt":
+    posts = posts.order_by("created_at")
+  elif sort == "updateAt":
+    posts = posts.order_by("-updated_at")
+  elif sort == "idea":
+    posts = posts.order_by("idea")
+
+  context = {
+    "posts": posts
+  }
+  return render(request, template_name='posts/home.html', context=context)
 
 def create(request):
-    if request.method == "POST":
-        print(request.POST)
-        idea = request.POST["idea"]
-        req_photo = request.FILES["photo"]
-        content = request.POST["content"]
-        interest = request.POST["interest"]
-        tool = request.POST["tool"]
+  if request.method == "POST":
+    idea = request.POST["idea"]
+    req_photo = request.FILES["photo"]
+    content = request.POST["content"]
+    interest = request.POST["interest"]
+    tool = Tool.objects.get(name = request.POST["tool"])
 
-        Post.objects.create(idea = idea, photo = req_photo, content = content,
-        interest = interest,tool = tool)
+    Post.objects.create(
+      idea=idea,
+      photo=req_photo,
+      content=content,
+      interest=interest,
+      tool=tool
+    )
+    return redirect("/")
 
-        return redirect("/")
+  tools = Tool.objects.all()
 
-    context = {}
-
-    return render(request, template_name="posts/create.html",
-    context = context)
+  context = {"tools": tools}
+  return render(request, template_name='posts/create.html', context=context)
 
 def detail(request, id):
     post = Post.objects.get(id=id)
