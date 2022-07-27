@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirostagram</title>
+    <script
+      src="https://kit.fontawesome.com/f578b19b63.js"
+      crossorigin="anonymous"
+    ></script>    
+    </head>
+  <body>
+    <div class="box">
+        <div class="post">
+            <div class="image">
+                <img src="./static/image/post_image.jpg"/>
+            </div>
+            <div class="text">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-comment"></i>
+            </br>
+                <span><strong>nahyun_917</strong></span>
+                <span>좋은 새벽이네요^0^ 운영진님들 언제나 화이팅~!!</span>
+            </div>
+            <div class="content">
+                <div class="comments">
+                    {% for comment in comments%}
+                    <div class="comment" id="comment-{{comment.id}}">
+                        <div class="left-content">
+                            <span><strong>nomader</strong></span>
+                            <p>{{comment.comment}}</p>
+                        </div>
+                        <div class="buttons">
+                            <div class="delete">
+                                <button type="submit" onclick="onClickDelete({{ comment.id }})">
+                                    {% csrf_token %}삭제
+                                </button>
+                            </div>
+                            <div class="like">
+                                <button type="submit" onclick="onClickLike({{ comment.id }} )">
+                                    {% csrf_token %} {% if comment.like %}
+                                    <i class="fas fa-heart"></i>
+                                    {%else%}
+                                    <i class="far fa-heart"></i>
+                                    {%endif%}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="write-comment">
+                    <form action="/" method="POST">
+                        {% csrf_token %}
+                          {{form.as_p}}
+                        <input type="submit" value="게시" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const requestLike = new XMLHttpRequest();
+        const onClickLike = (id) => {        
+            const url = "/like/";
+            requestLike.open("POST", url, true);
+            requestLike.setRequestHeader(
+                "content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            requestLike.send(JSON.stringify({id: id}))
+        }
+
+        requestLike.onreadystatechange = () => {
+            if (requestLike.readyState === XMLHttpRequest.DONE){ //서버가 응답할 준비를 마침
+                const {id, type} = JSON.parse(requestLike.response);
+                const element = document.querySelector(`#comment-${id}`);
+                const i = element.querySelector(".like button i");
+                i.classList.toggle("fas");
+                i.classList.toggle("far");
+            }
+        }
+
+        const requestDelete = new XMLHttpRequest();
+        const onClickDelete = (id) => {
+            const url = "/delete/";
+            requestDelete.open("POST", url, true);
+            requestDelete.setRequestHeader(
+                "content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            requestDelete.send(JSON.stringify({id: id}))
+        }
+
+        requestDelete.onreadystatechange = () => {
+            if (requestDelete.readyState === XMLHttpRequest.DONE){
+                const {id} = JSON.parse(requestDelete.response);
+                const element = document.querySelector(`#comment-${id}`);
+                element.remove();
+            }
+        }
+    </script>
+  </body>
+</html>
